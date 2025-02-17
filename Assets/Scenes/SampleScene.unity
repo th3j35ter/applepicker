@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basketPrefab: {fileID: 2784217857796492889, guid: 5dc8d6c52fa7ed84c87c86997d238452, type: 3}
-  numBaskets: 3
+  numBaskets: 4
   basketBottomY: -14
   basketSpacingY: 2
   basketList: []
