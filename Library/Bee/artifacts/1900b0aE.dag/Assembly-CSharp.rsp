@@ -403,6 +403,7 @@
 "Assets/ApplePicker.cs"
 "Assets/AppleTree.cs"
 "Assets/Basket.cs"
+"Assets/Branch.cs"
 "Assets/HighScore.cs"
 "Assets/ScoreCounter.cs"
 "Assets/StartScreenManager.cs"
