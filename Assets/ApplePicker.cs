@@ -16,12 +16,14 @@ public class ApplePicker : MonoBehaviour
 
     public Text roundText;
     private int currentRound = 1;
+    private int maxRound = 4;
+    public int branchesToAdvance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         basketList = new List<GameObject>();
-        for (int i = 0; i <= numBaskets; i++)
+        for (int i = 0; i < numBaskets; i++)
         {
             GameObject tBasketGO = Instantiate<GameObject>(basketPrefab);
             Vector3 pos = Vector3.zero;
@@ -29,8 +31,18 @@ public class ApplePicker : MonoBehaviour
             tBasketGO.transform.position = pos;
             basketList.Add(tBasketGO);
         }
-
+        branchesToAdvance = Random.Range(5, 10);
         UpdateRoundUI();
+    }
+
+    void Update()
+    {
+        AppleTree appleTree = Camera.main.GetComponent<AppleTree>();
+        if (appleTree != null && appleTree.branchesFallen >= branchesToAdvance)
+        {
+            UpdateRound();
+            appleTree.branchesFallen = 0;
+        }
     }
 
     public void AppleMissed()
@@ -74,5 +86,47 @@ public class ApplePicker : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
+    }
+
+    public void RemoveAllBaskets()
+    {
+        foreach (GameObject basket in basketList)
+        {
+            Destroy(basket);
+        }
+        basketList.Clear();
+
+        roundText.text = "Game Over";
+        Time.timeScale = 0;
+        ShowRestartButton();
+    }
+
+    public void UpdateRound()
+    {
+        if (currentRound < maxRound)
+        {
+            currentRound++;
+            UpdateRoundUI();
+            IncreaseDifficulty();
+        }
+        else
+        {
+            roundText.text = "You Win!";
+            Time.timeScale = 0;
+            ShowRestartButton();
+        }
+    }
+
+    void IncreaseDifficulty()
+    {
+        AppleTree appleTree = Camera.main.GetComponent<AppleTree>();
+
+        if (appleTree != null)
+        {
+            appleTree.speed += 0.5f;
+            appleTree.appleDropDelay = Mathf.Max(0.5f, appleTree.appleDropDelay - 0.2f);
+            appleTree.changeDirChance += 0.05f;
+            appleTree.branchSpawnChance += 0.05f;
+        }
     }
 }

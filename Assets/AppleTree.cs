@@ -5,6 +5,7 @@ public class AppleTree : MonoBehaviour
 
     [Header("Inscribed")]
     public GameObject applePrefab;
+    public GameObject branchPrefab;
 
     public float speed = 1f;
 
@@ -13,6 +14,14 @@ public class AppleTree : MonoBehaviour
     public float changeDirChance = 0.1f;
 
     public float appleDropDelay = 1f;
+
+    public int appleDropCount = 0;
+
+    public float branchSpawnChance = 0.1f;
+
+    public int branchesFallen = 0;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +57,25 @@ public class AppleTree : MonoBehaviour
     {
         GameObject apple = Instantiate<GameObject>(applePrefab);
         apple.transform.position = transform.position;
+        appleDropCount += 1;
+        RandomChances();
         Invoke("DropApple", appleDropDelay);
+    }
+
+    void DropBranch()
+    {
+        GameObject branch = Instantiate<GameObject>(branchPrefab);
+        branch.transform.position = transform.position;
+        branchesFallen += 1;
+        Invoke("DropBranch", appleDropDelay);
+    }
+
+    void RandomChances()
+    {
+        int randomNumber = Random.Range(0, 10);
+        if (appleDropCount == randomNumber) 
+        {
+            DropBranch();
+        }
     }
 }
