@@ -7,7 +7,7 @@ public class ApplePicker : MonoBehaviour
 {
     [Header("Inscribed")]
     public GameObject basketPrefab;
-    public int numBaskets = 4;
+    public int numBaskets = 3;
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
@@ -48,8 +48,8 @@ public class ApplePicker : MonoBehaviour
 
         if (basketList.Count == 0)
         {
-            roundText.text = "Game Over";
             Time.timeScale = 0;
+            roundText.text = "Game Over";
             ShowRestartButton();
         }
     }
@@ -73,5 +73,6 @@ public class ApplePicker : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 }
