@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 245523388}
   - component: {fileID: 245523387}
   - component: {fileID: 245523386}
-  - component: {fileID: 245523389}
   m_Layer: 5
   m_Name: Restartbutton
   m_TagString: Untagged
@@ -253,25 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245523384}
   m_CullTransparentMesh: 1
---- !u!114 &245523389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245523384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20f7ee5d7a6ae14caf1f7f5476ccacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basketPrefab: {fileID: 0}
-  numBaskets: 4
-  basketBottomY: -14
-  basketSpacingY: 2
-  basketList: []
-  restartButton: {fileID: 245523384}
-  roundText: {fileID: 0}
 --- !u!1 &555068270
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +263,6 @@ GameObject:
   - component: {fileID: 555068271}
   - component: {fileID: 555068273}
   - component: {fileID: 555068272}
-  - component: {fileID: 555068274}
   m_Layer: 5
   m_Name: RoundText
   m_TagString: Untagged
@@ -352,25 +331,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555068270}
   m_CullTransparentMesh: 1
---- !u!114 &555068274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555068270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20f7ee5d7a6ae14caf1f7f5476ccacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basketPrefab: {fileID: 0}
-  numBaskets: 4
-  basketBottomY: -14
-  basketSpacingY: 2
-  basketList: []
-  restartButton: {fileID: 0}
-  roundText: {fileID: 555068272}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,8 +617,8 @@ MonoBehaviour:
   basketBottomY: -14
   basketSpacingY: 2
   basketList: []
-  restartButton: {fileID: 0}
-  roundText: {fileID: 0}
+  restartButton: {fileID: 245523384}
+  roundText: {fileID: 555068272}
 --- !u!1 &1231074575
 GameObject:
   m_ObjectHideFlags: 0

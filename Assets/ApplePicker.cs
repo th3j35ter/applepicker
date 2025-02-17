@@ -49,8 +49,8 @@ public class ApplePicker : MonoBehaviour
         if (basketList.Count == 0)
         {
             roundText.text = "Game Over";
-            ShowRestartButton();
             Time.timeScale = 0;
+            ShowRestartButton();
         }
     }
 
